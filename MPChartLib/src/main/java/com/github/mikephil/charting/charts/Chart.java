@@ -53,8 +53,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
-import androidx.annotation.NonNull;
-
 /**
  * Baseclass of all Chart-Views.
  *
@@ -180,7 +178,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * Additional data on top of dynamically generated description. This can be set by the user.
      */
-    private String accessibilitySummaryDescription = "";
+    private String accessSumDes = "";
 
     /**
 	 * default constructor for initialization in code
@@ -1673,12 +1671,12 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      */
     public abstract String getAccessibilityDescription();
 
-    public String getAccessibilitySummaryDescription() {
-        return accessibilitySummaryDescription;
+    public String getAccessSumDes() {
+        return accessSumDes;
     }
 
-    public void setAccessibilitySummaryDescription(String accessibilitySummaryDescription) {
-        this.accessibilitySummaryDescription = accessibilitySummaryDescription;
+    public void setAccessSumDes(String accessSumDes) {
+        this.accessSumDes = accessSumDes;
     }
 
     @Override
@@ -1690,8 +1688,8 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
         event.getText().add(getAccessibilityDescription());
 
         // Add the user generated summary after the dynamic summary is complete.
-        if (!TextUtils.isEmpty(this.getAccessibilitySummaryDescription())) {
-            event.getText().add(this.getAccessibilitySummaryDescription());
+        if (!TextUtils.isEmpty(this.getAccessSumDes())) {
+            event.getText().add(this.getAccessSumDes());
         }
 
         return true;
